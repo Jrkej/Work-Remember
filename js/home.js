@@ -1,3 +1,4 @@
+const syllabus = ["Maths-Trignometry-1100", "Maths-Coordinate Geometry-1100", "Maths-Triangles-1100", "Maths-Polynomials-1100", "Maths-Pair of linear equations in Two Variables-1100", "Maths-Areas related to Circles-1100", "Maths-Probability-1100", "Maths-Real Numbers-1100", "Hindi-Kabir-1100", "Hindi-Meera-1100", "Hindi-Bade Bhai Sahab-1100", "Hindi-Tatara Vamiro katha-1100", "Hindi-Ab kaha dusre ke dukh se dukhi hone wale-1100", "English-A Letter to God-1100", "English-Dust of Snow-1100", "English-Fire and Ice-1100", "English-Nelson Mandela: Long walk to Freedom-1100", "English-A Tiger in the Zoo-1100", "English-Two Stories about Flying-1100", "English-The Ball Poem-1100", "English-From Diary of Anne Frank-1100", "English-The Hundred Dresses 1-1100", "English-The Hundred Dresses 2-1100", "Social science-Power Sharing (Political Science)-1100", "Social science-Federalism (Political Science)-1100", "Social science-Development (Economics))-1100", "Social science-Sectors of Indian Economy (Economics)-1100", "Science-Life Processes (Biology)-1100", "Science-Chemical reactions and equations (Chemistry)-1100", "Science-Acids, Bases and salts (Chemistry)-1100", "Science-Metals and Non metals (Chemistry)-1100", "Science-Reflection of light (Physics)-1100", "Science-Refraction of light (physics)-1100", "Science-The human Eye and colourful world (physics)-1100", "Social science-Resources and Development (Geography)-1100", "Social science-Water Resources (Geography)-1100", "Social science-Agriculture (Geography)-1100", "Social science-The Rise of Nationalism in Europe (History)-1100"];
 $(document).ready(function($){
   load($);
 });
@@ -69,12 +70,12 @@ function createId() {
     console.log(name, "creating id");
     var user = {};
     user["name"] = name;
-    user["chapters"] = [];
-    user["totalstudy"] = 0;
-    user["leftstudy"] = 0;
+    user["chapters"] = syllabus;
+    user["totalstudy"] = syllabus.length;
+    user["leftstudy"] = syllabus.length;
     user["donestudy"] = 0;
-    user["totalwork"] = 0;
-    user["leftwork"] = 0;
+    user["totalwork"] = syllabus.length;
+    user["leftwork"] = syllabus.length;
     user["donework"] = 0;
     user["logs"] = [];
     localStorage.setItem("user", JSON.stringify(user));
