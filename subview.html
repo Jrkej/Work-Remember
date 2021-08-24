@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id="title">Subject</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/loader.js"></script>
+    <script type="text/javascript" src="js/canvasjs.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/shieldui.1.7.43-Trial/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/shieldui.1.7.43-Trial/js/shieldui-all.min.js"></script>
+    <link id="themecss" rel="stylesheet" type="text/css" href="js/shieldui.1.7.43-Trial/css/light-bootstrap/all.min.css" />
+    <script type="text/javascript" src="js/subject.js"></script>
+    <script type="text/javascript" src="js/info.js"></script>
+</head>
+<body>
+    <div class="modal fade" id="addChapter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 id="myModalLabel">Add Chapter</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+              Chapter name: <input type="text" id="chapter-name" default="Chapter Name" style="margin-left: 25px;"></input>
+              <select style="margin-left: 1px;width: 150px;height: 30px;" id="chapter-subject">
+                <option>Choose Subject</option>
+                <option>Maths</option>
+                <option>Computer</option>
+                <option>Science</option>
+                <option>Hindi</option>
+                <option>English</option>
+                <option>Social science</option>
+              </select>
+              <br>
+              Study and Work: 
+              <div class="form-check-inline text-center" style="margin-left: 10px;">
+                <input class="form-check-input" id="chapter-study" type="checkbox" name="study" value="study" checked>
+                  <label class="form-check-label">
+                    Study
+                  </label>
+                <input class="form-check-input" id="chapter-work" type="checkbox" name="work" value="work" checked style="margin-left: 20px;">
+                  <label class="form-check-label">
+                    Work
+                  </label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+              <button onclick="addChapter()" data-dismiss="modal" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Add chapter end-->
+      <!--Add chapter end-->
+      <div class="modal fade" id="markChapter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 id="myModalLabel">Mark Chapter</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+              Subject:<select onchange="loadChaptersMark()" style="margin-left: 1px;width: 150px;height: 30px;" id="mark-chapter-subject">
+                <option>Choose Subject</option>
+                <option>Maths</option>
+                <option>Computer</option>
+                <option>Science</option>
+                <option>Hindi</option>
+                <option>English</option>
+                <option>Social science</option>
+              </select>
+              Chapter:<select style="margin-left: 1px;width: 150px;height: 30px;" id="mark-chapter-name">
+                <option>None</option>
+                <option>Choose Subject First</option>
+              </select>
+              <br>
+              <p><b>NOTE</b> - It will mark both worked and studied.</p>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+              <button onclick="markChapter()" data-dismiss="modal" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--mark chapter end-->
+      <div class="modal fade" id="removeChapter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 id="myModalLabel">Remove Chapter</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+              Subject:<select onchange="loadChapters()" style="margin-left: 1px;width: 150px;height: 30px;" id="rem-chapter-subject">
+                <option>Choose Subject</option>
+                <option>Maths</option>
+                <option>Computer</option>
+                <option>Science</option>
+                <option>Hindi</option>
+                <option>English</option>
+                <option>Social science</option>
+              </select>
+              Chapter:<select style="margin-left: 1px;width: 150px;height: 30px;" id="rem-chapter-name">
+                <option>None</option>
+                <option>Choose Subject First</option>
+              </select>
+              <br>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+              <button onclick="removeChapter()" data-dismiss="modal" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--remove chapter end-->
+    <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand text-success" href="#">Workemember</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="nav-item"><a class="nav-link text-info" href="index.html" id="dashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link text-info" href="subview.html?subject=maths" id="maths">Maths</a></li>
+                <li class="nav-item"><a class="nav-link text-info" href="subview.html?subject=computer" id="computer">Computer</a></li>
+                <li class="nav-item"><a class="nav-link text-info" href="subview.html?subject=science" id="science">Science</a></li>
+                <li class="nav-item"><a class="nav-link text-info" href="subview.html?subject=hindi" id="hindi">Hindi</a></li>
+                <li class="nav-item"><a class="nav-link text-info" href="subview.html?subject=english" id="english">English</a></li>
+                <li class="nav-item"><a class="nav-link text-info" href="subview.html?subject=social-science" id="social-science">Social Science</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container p-3 mt-3">
+      <h1 id="head">SUBJECT</h1>
+      <hr>
+        <div class="d-flex mt-5">
+            <div class="d-flex flex-column mb-3 text-uppercase w-50" id="list">
+                <ul class="list-group" id="list">
+                </ul>
+            </div>
+            <div class="d-flex flex-column mb-3 text-uppercase w-50" id="stats">
+                <div class="card" style="width: 500px;height: 400px;margin-left: 100px;">
+                    <div class="card-img-top">
+                        <div class="container d-flex justify-container-center">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="piechart" style="width: 450px; height: 250px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Syllabus</h3>
+                        <hr>
+                        <a data-target="#addChapter" role="button" id="add-chapter" data-toggle="modal" class="btn btn-primary text-white">+ Add chapter</a>
+                        <a data-target="#markChapter" role="button" id="mark-chapter" data-toggle="modal" class="btn btn-primary text-white">Mark Chapter</a>
+                        <a data-target="#removeChapter" role="button" id="rem-chapter" data-toggle="modal" class="btn btn-primary text-white">Remove Chapter</a>
+                    </div>
+                </div>
+                <!--End-->
+                <div class="card" style="width: 500px;height: 400px;margin-left: 100px; margin-top: 60px;">
+                    <div class="card-img-top">
+                        <div class="container d-flex justify-container-center">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="piechartwork" style="width: 450px; height: 250px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Work</h3>
+                        <hr>
+                        <a data-target="#addChapter" role="button" id="add-chapter1" data-toggle="modal" class="btn btn-primary text-white">+ Add chapter</a>
+                        <a data-target="#markChapter" role="button" id="mark-chapter1" data-toggle="modal" class="btn btn-primary text-white">Mark Chapter</a>
+                        <a data-target="#removeChapter" role="button" id="rem-chapter1" data-toggle="modal" class="btn btn-primary text-white">Remove Chapter</a>
+                    </div>
+                </div>
+                <!--End-->
+                <div class="card" style="width: 500px;height: 400px;margin-left: 100px;margin-top: 60px;">
+                    <div id="graph" style="width: 480px; height: 350px;"></div>
+                    <div class="card-body">
+                        <h3 class="card-title">Activites last 7 days.</h3>
+                    </div>
+                </div>
+                <!--End-->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
