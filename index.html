@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <title>Dashboard</title>
+  <!-- Meta Tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  
+  <!-- Important JS and CSS links -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script type="text/javascript" src="js/loader.js"></script>
   <script type="text/javascript" src="js/canvasjs.min.js"></script>
@@ -19,6 +21,7 @@
 </head>
 
 <body>
+  <!-- Body Start -->
   <div class="modal fade" id="addChapter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
     <div class="modal-dialog">
@@ -27,6 +30,7 @@
           <h3 id="myModalLabel">Add Chapter</h3>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
+        <!-- Subjects -->
         <div class="modal-body">
           Chapter name: <input type="text" id="chapter-name" default="Chapter Name" style="margin-left: 25px;"></input>
           <select style="margin-left: 1px;width: 150px;height: 30px;" id="chapter-subject">
@@ -39,6 +43,7 @@
             <option>Social science</option>
           </select>
           <br>
+          <!-- Study and Work Selection -->
           Study and Work: 
           <div class="form-check-inline text-center" style="margin-left: 10px;">
             <input class="form-check-input" id="chapter-study" type="checkbox" name="study" value="study" checked>
@@ -211,5 +216,6 @@
     </div>
   </div>
   </div>
+<!-- Body End -->
 </body>
 </html>
