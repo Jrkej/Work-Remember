@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  
   <title>Dashboard</title>
+
   <!-- Meta Tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="images/icon.ico">
+  <meta property="og:image" content="images/icon.png">
+  <meta property="og:url" content="https://jrkej.github.io/Work-Remember/">
   
   <!-- Important JS and CSS links -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -15,9 +22,24 @@
 
   <script type="text/javascript" src="js/shieldui.1.7.43-Trial/js/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="js/shieldui.1.7.43-Trial/js/shieldui-all.min.js"></script>
-  <link id="themecss" rel="stylesheet" type="text/css" href="js/shieldui.1.7.43-Trial/css/light-bootstrap/all.min.css" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+    crossorigin="anonymous"
+  />
+  <!-- <link id="themecss" rel="stylesheet" type="text/css" href="js/shieldui.1.7.43-Trial/css/light-bootstrap/all.min.css" /> -->
+
   <script type="text/javascript" src="js/home.js"></script>
   <script type="text/javascript" src="js/info.js"></script>
+
+  <link id="dark-theme-style" rel="stylesheet" />
+  
+  <!-- Icons Sources (Allows custom icons to be added to the project) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -30,6 +52,7 @@
           <h3 id="myModalLabel">Add Chapter</h3>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
+        
         <!-- Subjects -->
         <div class="modal-body">
           Chapter name: <input type="text" id="chapter-name" default="Chapter Name" style="margin-left: 25px;"></input>
@@ -142,6 +165,14 @@
                 <li class="nav-item"><a class="nav-link text-info" href="subview.html?subject=hindi">Hindi</a></li>
                 <li class="nav-item"><a class="nav-link text-info" href="subview.html?subject=english">English</a></li>
                 <li class="nav-item"><a class="nav-link text-info" href="subview.html?subject=social-science">Social Science</a></li>
+                
+                <!-- Theme switcher -->
+                <li class="nav-item pt-2">
+                  <div class="custom-control custom-switch">
+                    <input href="javascript:void()" type="checkbox" class="custom-control-input" id="customSwitch1" onclick="toggleTheme()">
+                    <label class="custom-control-label" for="customSwitch1" id="theme-toggler"></label>
+                  </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -216,6 +247,7 @@
     </div>
   </div>
   </div>
+  <script src="js/index.js"></script>
 <!-- Body End -->
 </body>
 </html>
